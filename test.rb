@@ -3,14 +3,24 @@ def caesar(string, shift)
 	x = Array.new
 	s = Array.new
 	array.each do |letter|
-		if letter ==" "
+		if letter.ord.between?(32,64)
 			x << letter
-		else
+		elsif letter.ord.between?(97,122)
 			letter=letter.ord
 			if letter+shift>122
 				a=122-letter
 				letter+=a
 				letter=96+(shift-a)
+				x << letter
+			else
+			x << letter+=shift
+			end
+		elsif letter.ord.between?(65,90)
+			letter=letter.ord
+			if letter+shift>90
+				a=90-letter
+				letter+=a
+				letter=64+(shift-a)
 				x << letter
 			else
 			x << letter+=shift
@@ -24,4 +34,4 @@ def caesar(string, shift)
 
 puts s.join(" ")
 end
-caesar("what a string", 5)
+caesar("What a string!", 5)

@@ -1,19 +1,19 @@
-def caesar(string, shift)
-	array = string.split("")
-	x = Array.new
-	s = Array.new
-	array.each do |letter|
+def caesar_cipher(string, shift)
+	char_array = string.split("")
+	ascii = Array.new
+	encryption = Array.new
+	char_array.each do |letter|
 		if letter.ord.between?(32,64)
-			x << letter
+			ascii << letter
 		elsif letter.ord.between?(97,122)
 			letter=letter.ord
 			if letter+shift>122
 				a=122-letter
 				letter+=a
 				letter=96+(shift-a)
-				x << letter
+				ascii << letter
 			else
-			x << letter+=shift
+			ascii << letter+=shift
 			end
 		elsif letter.ord.between?(65,90)
 			letter=letter.ord
@@ -21,17 +21,17 @@ def caesar(string, shift)
 				a=90-letter
 				letter+=a
 				letter=64+(shift-a)
-				x << letter
+				ascii << letter
 			else
-			x << letter+=shift
+			ascii << letter+=shift
 			end
 		end
 	end
-		x.each do |number|
-			number = number.chr
-			s << number
+		ascii.each do |number|
+			encrypted_letter = number.chr
+			encryption << encrypted_letter
 		end
 
-puts s.join(" ")
+puts encryption.join(" ")
 end
-caesar("What a string!", 5)
+caesar_cipher("What a string!", 5)

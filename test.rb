@@ -7,9 +7,15 @@ def caesar(string, shift)
 			x << letter
 		else
 			letter=letter.ord
-
-			x << letter+=shift
-		
+		end
+		letter=letter.ord
+		if letter+shift>122
+			a=122-letter
+			letter+=a
+			letter=96+(shift-a)
+			x << letter
+		else
+		x << letter+=shift
 		end
 	end
 		x.each do |number|
@@ -19,5 +25,4 @@ def caesar(string, shift)
 
 puts s.join(" ")
 end
-caesar("abc abc",1)
-caesar("What a string!", 5)
+caesar("what a string", 5)

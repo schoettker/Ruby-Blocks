@@ -3,7 +3,7 @@ def substrings(string,dictionary)
   dictionary.select do |entry|
     searchterms = string.split(" ")
     searchterms.each do |word|
-      if entry.include?(word)
+      if word.downcase.include?(entry)
         occurences[entry.to_sym] += 1
       end
     end
@@ -12,5 +12,5 @@ def substrings(string,dictionary)
 end
 
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-
+substrings("below", dictionary)
 substrings("Howdy partner, sit down! How's it going?", dictionary)

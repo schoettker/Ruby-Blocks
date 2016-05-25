@@ -1,23 +1,16 @@
-dictionary = ["yes","down","go","going","horn","how","below","howdy","it","i","low","own","part","below","partner","sit"]
-
-def substrings(string, dictionary)
-array = string.split(" ")
-dic_string = dictionary.join("")
-i=0
-k=i+1
-matches = Hash.new(0)
-array.each do |word|
-  while i < dictionary.size
-    if dictionary[i].include?word
-      matches[word]=k
+def substrings(string,dictionary)
+  occurences = Hash.new(0)
+  dictionary.select do |entry|
+    searchterms = string.split(" ")
+    searchterms.each do |word|
+      if entry.include?(word)
+        occurences[entry.to_sym] += 1
+      end
     end
-  i+=1
+  end
+  p occurences
 end
-end
-p matches
-end
-substrings("below horn",dictionary)
 
+dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
 
-
-#prüfen ob ein teil eines wortes von string in dictionary enthalten ist
+substrings("Howdy partner, sit down! How's it going?", dictionary)

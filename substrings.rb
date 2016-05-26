@@ -1,6 +1,6 @@
 def substrings(string,dictionary)
   occurences = Hash.new(0)
-  dictionary.select do |entry|
+  dictionary.each do |entry|
     searchterms = string.split(" ")
     searchterms.each do |word|
       if word.downcase.include?(entry)

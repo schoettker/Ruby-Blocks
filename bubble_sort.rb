@@ -1,24 +1,13 @@
 def bubble_sort(array)
-  i=1
-
-  array.each do |number|
-    c=number<=>array[i]
-
-    if c == -1 #erste zahl kleiner als zweite
-      i+=1
-    elsif c == 0 #zahhlen gleich
-      i+=1
-    elsif c == 1 #erste zahl größer als zweite
-      array[i-1]=array[i]
-      array[i] = number
-      i+=1
-
-
-    end
-
-  end
-
+  for element in array
+      array.each_with_index do |number,i|
+          c = number <=> array[i+1]
+          if c == 1
+            array[i],array[i+1]=array[i+1],array[i]
+          end
+        end
+      end
   p array
 end
-
+bubble_sort([2,1,5,8,3,6,46,23,4])
 bubble_sort([4,109,3,78,2,0,2])

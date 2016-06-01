@@ -31,8 +31,17 @@ module Enumerable
       true
     end
   end
+  def my_any?
+    x=0
+    self.my_each do |i|
+      if yield(i)==true
+        x+=1
+      end
+    end
+    true unless x==0
+  end
 end
-p ["hi","Jo","df"].my_all? {|k| k.size == 2 }
+p ["hih","Joghj","dhjg","sd"].my_any? {|k| k.size == 2 }
 #p ["hi","Jo","dddf"].my_select {|k| k.size == 2 }
 #p ["hi","Jo"].my_each {|k| p k}
 # ["hi","Jo"].each {|k| p k}

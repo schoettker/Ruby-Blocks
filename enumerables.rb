@@ -56,20 +56,11 @@ module Enumerable
     end
     new_array
   end
+  def my_inject
+
+  end
 
 end
-
-p (1..4).map { |i| i*i }
-
-#p ["hih","Joghj","dhjg","sdfg","sd"].my_none? {|k| k.size == 2 }
-#p ["hih","Joghj","dhjg","sd"].my_any? {|k| k.size == 2 }
-#p ["hi","Jo","dddf"].my_select {|k| k.size == 2 }
-#p ["hi","Jo"].my_each {|k| p k}
-# ["hi","Jo"].each {|k| p k}
-##["hi","Jo"].each {|k| p k}
-
-
-
 
 =begin
   def my_count(*argument)
